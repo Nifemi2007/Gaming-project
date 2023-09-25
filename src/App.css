@@ -1,38 +1,314 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: myFont;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: myFont;
+  src: url(./fonts/static/Inter-Regular.ttf);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  /* position: absolute; */
+  overflow-x: hidden;
+  padding: 0px 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.active {
+  overflow-y: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+main {
+  display: flex;
+  gap: 28px;
+}
+
+.main-text {
+  background-color: hsl(36, 100%, 99%);
+  height: 75vh;
+  width: 72%;
+}
+
+.lg-img {
+  height: 60%;
+  width: 100%;
+  background-image: url(./img/image-web-3-desktop.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0;
+}
+
+.text {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 25px 0px;
+}
+
+@font-face {
+  font-family: myFont2;
+  src: url(./fonts/static/Inter-Bold.ttf);
+}
+
+.bold {
+  /* border: 2px solid black; */
+  flex-shrink: 0;
+  width: 50%;
+}
+
+.bold h1 {
+  width: 65%;
+  font-size: 50px;
+  line-height: 50px;
+  font-family: myFont2;
+}
+
+.text-content {
+  /* border: 2px solid black; */
+  flex-shrink: 0;
+  height: 100%;
+  width: 50%;
+  /* padding-right: 10px; */
+  /* padding-left: 120px; */
+}
+
+.text-content p {
+  box-sizing: border-box;
+  text-align: left;
+  /* word-spacing: 2px; */
+  line-height: 23px;
+  width: 330px;
+  font-size: 15px;
+  color: hsl(236, 13%, 42%);
+}
+
+.text-content button {
+  width: 150px;
+  height: 40px;
+  background-color: hsl(5, 85%, 63%);
+  color: hsl(36, 100%, 99%);
+  border: none;
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-top: 40px;
+}
+
+.text-content button:hover {
+  background-color: hsl(240, 100%, 5%);
+  cursor: pointer;
+}
+
+.right-text {
+  display: flex;
+  padding-top: 10px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: hsl(240, 100%, 5%);
+  width: 28%;
+  height: 75vh;
+}
+
+.right-text h2 {
+  /* padding-top: 30px; */
+  color: hsl(35, 77%, 62%);
+}
+
+.right-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: auto;
+  width: 85%;
+  height: 90%;
 }
 
-.App-link {
-  color: #61dafb;
+.right-content h3 {
+  margin-top: 25px;
+  color: hsl(36, 100%, 99%);
 }
 
-@keyframes App-logo-spin {
+.right-content h3:hover {
+  color: hsl(35, 77%, 62%);
+  cursor: pointer;
+}
+
+.right-content p {
+  width: 95%;
+  color: hsl(233, 8%, 79%);
+  margin: 10px 0px;
+  padding-bottom: 25px;
+  font-size: 14px;
+  line-height: 25px;
+  /* border-bottom: 1px solid hsl(236, 13%, 42%); */
+}
+
+section {
+  display: flex;
+  /* gap: 100px; */
+  height: 15vh;
+  margin-top: 50px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.card-container {
+  /* border: 2px solid blue; */
+  width: 350px;
+  display: flex;
+  gap: 20px;
+}
+.card-container h2 {
+  color: hsl(233, 8%, 79%);
+}
+
+@font-face {
+  font-family: myFont3;
+  src: url(./fonts/static/Inter-ExtraBold.ttf);
+}
+
+.card-container h3 {
+  font-family: myFont3;
+  font-size: 16px;
+  margin: 5px 0px;
+}
+
+.card-container h3:hover {
+  color: hsl(5, 85%, 63%);
+  cursor: pointer;
+}
+
+.card-container p {
+  line-height: 20px;
+  width: 83%;
+  font-size: 14px;
+  color: hsl(236, 13%, 42%);
+}
+
+.side-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  background-color: white;
+  height: 100%;
+  animation-name: slideout;
+  animation-duration: 1s;
+}
+
+@keyframes slidein {
   from {
-    transform: rotate(0deg);
+    right: 0;
+  }
+
+  to {
+    right: -100%;
+  }
+}
+
+@keyframes slideout {
+  from {
+    right: -100%;
   }
   to {
-    transform: rotate(360deg);
+    right: 0;
+  }
+}
+
+.side-bar li {
+  display: block;
+}
+
+.side-bar li a {
+  font-size: 20px;
+  font-family: myFont2;
+}
+
+.side-bar img {
+  float: right;
+  margin: 25px;
+  display: block;
+}
+
+.side-bar img + li {
+  margin-top: 150px;
+}
+
+@media screen and (max-width: 414px) {
+  body {
+    position: relative;
+    padding: 0px 20px;
+  }
+
+  main {
+    flex-direction: column;
+  }
+  .main-text {
+    width: 100%;
+  }
+
+  .lg-img {
+    margin-top: 20px;
+    background-image: url(./img/image-web-3-mobile.jpg);
+  }
+
+  .text {
+    height: 40%;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .bold {
+    width: 100%;
+    height: 50%;
+  }
+  .bold h1 {
+    /* margin: 10px 0px; */
+    width: 80%;
+    font-size: 40px;
+    line-height: 40px;
+    font-family: myFont3;
+  }
+
+  .text-content {
+    margin-top: 20px;
+    height: 50%;
+    width: 100%;
+  }
+  .text-content button {
+    margin-top: 20px;
+  }
+  .right-text {
+    width: 100%;
+    margin-top: 140px;
+  }
+
+  .right-content p {
+    width: 88%;
+  }
+
+  section {
+    row-gap: 30px;
+    height: 45vh;
+    flex-direction: column;
+  }
+  .card-container {
+    height: calc(100% / 3);
   }
 }
